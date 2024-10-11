@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>Temperature Converter</h2>
+    <form method="POST" action="{% url 'convert_temperature' %}">
+        {% csrf_token %}
+
+        <!-- Field for number of decimal places -->
+        <label for="precision">precision :</label>
+        <input type="number" id="precision" name="precision" min="1" max="6" required><br><br>
+
+        <!-- Field for temperature input -->
+        <label for="temperature">Temperature:</label>
+        <input type="number" id="temperature" name="temperature" required><br><br>
+
+        <!-- Dropdown for Celsius/Fahrenheit selection -->
+        <label for="scale">Convert to:</label>
+        <select id="scale" name="scale" required>
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select><br><br>
+
+        <!-- Submit button -->
+        <button type="submit">Convert</button>
+    </form>
+<br>
+
+    {% if converted_temperature %}
+        <p class="output">Converted Temperature: {{ converted_temperature }}</p>
+    {% endif %}
+</body>
+
+</body>
+</html>
