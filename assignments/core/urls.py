@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("", include('temperatureConverter.urls')),
-    path('admin/', admin.site.urls)
+    path("temperature/", include('temperatureConverter.urls')),
+    path('admin/', admin.site.urls),
+    path("",include('authentication.urls'))
 ]
