@@ -16,6 +16,12 @@
 
       {% csrf_token %}
 
+      {% if messages %}
+      {% for message in messages %}
+      {{message}}
+      {% endfor %}
+      {% endif %}
+
       <div class="input-box">
         <input type="text" name="first_name" placeholder="Enter your first name" required>
       </div>

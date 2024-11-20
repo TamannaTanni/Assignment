@@ -11,9 +11,15 @@
 </head>
 <body>
   <div class="wrapper">
-    <form action="" method="post">
+    <form action="{% url 'login' %}" method="post">
 
       {% csrf_token %}
+
+      {% if messages %}
+      {% for message in messages %}
+      {{message}}
+      {% endfor %}
+      {% endif %}
 
       <h2>Login</h2>
         <div class="input-field">

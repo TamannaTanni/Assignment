@@ -10,7 +10,7 @@
 <body>
 
 <h2>Temperature Converter</h2>
-    <form method="POST" action="{% url 'convert_temperature' %}">
+    <form method="POST" action="">
         {% csrf_token %}
 
         <!-- Field for number of decimal places -->
@@ -37,7 +37,12 @@
         <p class="output">Converted Temperature: {{ converted_temperature }}</p>
     {% endif %}
 
-<button type="submit">Convert</button>
+<form action="{% url 'logout' %}" method="POST">
+    {% csrf_token %}
+    <!-- Logout button -->
+    <button type="submit">Logout</button>
+</form>
+
 </body>
 
 </body>
